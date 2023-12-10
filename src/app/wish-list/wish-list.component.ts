@@ -10,5 +10,4 @@ import { WishItem } from 'src/shared/models/wishItem';
 export class WishListComponent {
   //@input is important
   @Input() wishes: WishItem[] = [];
-
 }
