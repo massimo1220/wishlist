@@ -20,7 +20,7 @@ import { WishListItemComponent } from './wish-list-item/wish-list-item.component
     WishListComponent,
     AddWishListComponent,
     WishFilterComponent,
-    WishListItemComponent,
+    WishListItemComponent
   ]
 })
 export class WishModule {}
