@@ -1,0 +1,9 @@
+<div class="container">
+  <add-wish-list (addWish)="items.push($event)"></add-wish-list>
+
+  <wish-filter [(filter)]="filter"></wish-filter>
+
+  <wish-list [wishes]="items.filter(filter)"></wish-list>
+
+  <!-- <td [colSpan]="" -->
+</div>
