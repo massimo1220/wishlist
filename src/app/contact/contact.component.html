@@ -4,17 +4,65 @@
 >
   <div>
     <label>Your name</label>
+
+    <div
+      *ngIf="
+        contactForm.get('senderName')?.invalid &&
+        (contactForm.get('senderName')?.dirty ||
+          contactForm.get('senderName')?.touched)
+      "
+    >
+      <small *ngIf="contactForm.get('senderName')?.hasError('required')">
+        This filed is required.
+      </small>
+    </div>
     <!-- <input type="text" [formControl]="senderNameControl" /> -->
     <input type="text" formControlName="senderName" />
   </div>
+
   <div>
     <label>Your email address</label>
     <input type="email" formControlName="senderEmail" />
+
+    <div
+      *ngIf="
+        contactForm.get('senderEmail')?.invalid &&
+        (contactForm.get('senderEmail')?.dirty ||
+          contactForm.get('senderEmail')?.touched)
+      "
+    >
+      <small *ngIf="contactForm.get('senderEmail')?.hasError('required')">
+        This filed is required.
+      </small>
+      <small *ngIf="contactForm.get('senderEmail')?.hasError('email')">
+        Please enter your email address.
+      </small>
+      <small *ngIf="contactForm.get('senderEmail')?.hasError('invalidEmailDomain')">
+        The email provider does not available.
+      </small>
+    </div>
   </div>
+
   <div>
     <label>Message</label>
     <textarea rows="3" formControlName="senderMessage"></textarea>
+
+    <div
+      *ngIf="
+        contactForm.get('senderMessage')?.invalid &&
+        (contactForm.get('senderMessage')?.dirty ||
+          contactForm.get('senderMessage')?.touched)
+      "
+    >
+      <small *ngIf="contactForm.get('senderMessage')?.hasError('required')">
+        This filed is required.
+      </small>
+      <small *ngIf="contactForm.get('senderMessage')?.hasError('minlength')">
+        This message has to be at least 10 chataracters.
+      </small>
+    </div>
   </div>
+
   <div>
     <!-- <button type="submit" (click)="$event.preventDefault(); submitForm()">Send Message</button> -->
     <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
